@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2018-08-08 19:39:00
+Date: 2018-08-08 23:21:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1019,7 +1019,7 @@ CREATE TABLE `sys_log` (
   `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
   `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=694 DEFAULT CHARSET=utf8 COMMENT='系统日志';
+) ENGINE=InnoDB AUTO_INCREMENT=696 DEFAULT CHARSET=utf8 COMMENT='系统日志';
 
 -- ----------------------------
 -- Records of sys_log
@@ -1714,6 +1714,8 @@ INSERT INTO `sys_log` VALUES ('690', '1', 'admin', '添加菜单', '4', 'com.boo
 INSERT INTO `sys_log` VALUES ('691', '1', 'admin', '保存菜单', '49', 'com.bootdo.system.controller.MenuController.save()', null, '127.0.0.1', '2018-08-08 19:38:29');
 INSERT INTO `sys_log` VALUES ('692', '1', 'admin', '添加菜单', '4', 'com.bootdo.system.controller.MenuController.add()', null, '127.0.0.1', '2018-08-08 19:38:37');
 INSERT INTO `sys_log` VALUES ('693', '1', 'admin', '保存菜单', '42', 'com.bootdo.system.controller.MenuController.save()', null, '127.0.0.1', '2018-08-08 19:38:45');
+INSERT INTO `sys_log` VALUES ('694', '1', 'admin', '登录', '40', 'com.bootdo.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-08-08 22:15:10');
+INSERT INTO `sys_log` VALUES ('695', '1', 'admin', '请求访问主页', '110', 'com.bootdo.system.controller.LoginController.index()', '{\"menus\":[{\"attributes\":{\"icon\":\"fa fa-bolt\",\"url\":\"\"},\"checked\":false,\"children\":[{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"147\",\"parentId\":\"104\",\"text\":\"运维日报\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"153\",\"parentId\":\"104\",\"text\":\"省份运行率分析\"},{\"attributes\":{\"icon\":\"fa fa-navicon\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"108\",\"parentId\":\"104\",\"text\":\"报警基本信息\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"150\",\"parentId\":\"104\",\"text\":\"报警明细查询\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"156\",\"parentId\":\"104\",\"text\":\"月度分析\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"148\",\"parentId\":\"104\",\"text\":\"运维周报\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"154\",\"parentId\":\"104\",\"text\":\"部委运行率分析\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"157\",\"parentId\":\"104\",\"text\":\"设备状态分析\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"149\",\"parentId\":\"104\",\"text\":\"运维月报\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"155\",\"parentId\":\"104\",\"text\":\"季度分析\"}],\"hasChildren\":true,\"hasParent\":false,\"id\":\"104\",\"parentId\":\"0\",\"text\":\"监控报警\"},{\"attributes\":{\"icon\":\"fa fa-video-camera\",\"url\":\"\"},\"checked\":false,\"children\":[{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"144\",\"parentId\":\"112\",\"text\":\"数据监控\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"158\",\"parentId\":\"112\",\"text\":\"温湿度分析\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"151\",\"parentId\":\"112\",\"text\":\"运行数据查询\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"145\",\"parentId\":\"112\",\"text\":\"视频监控\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"152\",\"parentId\":\"112\",\"text\":\"实时曲线展示\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"146\",\"parentId\":\"112\",\"text\":\"运维日志\"}],\"hasChildren\":true,\"hasParent\":false,\"id\":\"112\",\"parentId\":\"0\",\"text\":\"台站监控\"},{\"attributes\":{\"icon\":\"fa fa-suitcase\",\"url\":\"\"},\"checked\":false,\"children\":[{\"attributes\":{\"icon\":\"fa fa-pencil\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"110\",\"parentId\":\"103\",\"text\":\"数据日志\"},{\"attributes\":{\"icon\":\"fa fa-bars\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"111\",\"parentId\":\"103\",\"text\":\"数据管理\"},{\"attributes\":{\"icon\":\"fa fa-university\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"109\",\"parentId\":\"103\",\"text\":\"仓库管理\"}],\"hasChildren\":true,\"hasParent\":false,\"id\":\"103\",\"parentId\":\"0\",\"text\":\"数据仓库\"},{\"attributes\":{\"icon\":\"fa fa-spinner\",\"url\":\"\"},\"checked\":false,\"children\":[{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"136\",\"parentId\":\"135\",\"text\":\"消息反馈\"}],\"hasChildren\":true,\"hasParent\":true,\"id\":\"135\",\"parentId\":\"105\",\"text\":\"重力保障站\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"126\",\"parentId\":\"124\",\"text\":\"台网业务数据检查\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"129\",\"parentId\":\"124\",\"text\":\"台站上报设备信息检查\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"127\",\"parentId\":\"124\",\"text\":\"台网业务文件检查\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"125\",\"parentId\":\"124\",\"text\":\"台网信道检查与发布\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"128\",\"parentId\":\"124\",\"text\":\"台站上报信息检查\"}],\"hasChildren\":true,\"hasParent\":true,\"id\":\"124\",\"parentId\":\"105\",\"text\":\"监控中心\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"134\",\"parentId\":\"130\",\"text\":\"其他\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"hasParent\":true,\"id\":\"132\",\"parentId\":\"130\",\"text\":\"设备信息更改记录\"},{\"attributes\":{\"icon\":\"\",\"url\":\"\"},\"checked\":false,\"children\":[],\"hasChildren\":false,\"h', '127.0.0.1', '2018-08-08 22:15:10');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -2307,3 +2309,52 @@ INSERT INTO `sys_user_role` VALUES ('126', '132', '49');
 INSERT INTO `sys_user_role` VALUES ('127', '123', '48');
 INSERT INTO `sys_user_role` VALUES ('132', '36', '48');
 INSERT INTO `sys_user_role` VALUES ('133', '137', '56');
+
+-- ----------------------------
+-- Table structure for zl_word_downhistory
+-- ----------------------------
+DROP TABLE IF EXISTS `zl_word_downhistory`;
+CREATE TABLE `zl_word_downhistory` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` bigint(20) DEFAULT NULL COMMENT '下载人id',
+  `wordId` bigint(20) DEFAULT NULL COMMENT '文档id',
+  `donwTime` datetime DEFAULT NULL COMMENT '下载时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zl_word_downhistory
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for zl_word_info
+-- ----------------------------
+DROP TABLE IF EXISTS `zl_word_info`;
+CREATE TABLE `zl_word_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `treeId` bigint(20) DEFAULT NULL COMMENT '目录Id',
+  `fileName` varchar(255) DEFAULT NULL COMMENT '文件名称',
+  `path` varchar(255) DEFAULT NULL COMMENT '文件路径',
+  `userId` bigint(20) DEFAULT NULL COMMENT '上传人',
+  `createTime` datetime DEFAULT NULL COMMENT '上传时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zl_word_info
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for zl_word_tree
+-- ----------------------------
+DROP TABLE IF EXISTS `zl_word_tree`;
+CREATE TABLE `zl_word_tree` (
+  `name` varchar(200) DEFAULT NULL COMMENT '目录名称',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `parentId` bigint(20) DEFAULT NULL COMMENT '父类id（应该用不到）',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zl_word_tree
+-- ----------------------------
