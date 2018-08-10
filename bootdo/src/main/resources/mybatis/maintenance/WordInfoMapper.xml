@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.maintenance.dao.WordInfoDao">
+
+	<select id="get" resultType="com.bootdo.maintenance.domain.WordInfoDO">
+		select `id`,`treeId`,`fileName`,`path`,`userId`,`createTime` from zl_word_info where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.maintenance.domain.WordInfoDO">
+    SELECT zwi.id,`treeId`,`fileName`,`path`,zwi.userId,zwi.createTime,dic.name dicName,dic.value dicValue,dic.type dicType,syu.userName userName,syu.name
+    FROM zl_word_info zwi LEFT join  sys_user syu on  syu.user_id = zwi.userId left join sys_dict dic on dic.id=zwi.treeId
+        <where>  
+		  		  <if test="id != null and id != ''"> and zwi.id = #{id} </if>
+		  		  <if test="treeid != null and treeid != ''"> and treeId = #{treeid} </if>
+		  		  <if test="filename != null and filename != ''"> and fileName = #{filename} </if>
+		  		  <if test="path != null and path != ''"> and path = #{path} </if>
+		  		  <if test="userid != null and userid != ''"> and zwi.userId = #{userid} </if>
+		  		  <if test="createtime != null and createtime != ''"> and zwi.createTime = #{createtime} </if>
+		  		  <if test="docType != null and docType != ''"> and dic.type = #{docType} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by zwi.id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from zl_word_info
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="treeid != null and treeid != ''"> and treeId = #{treeid} </if>
+		  		  <if test="filename != null and filename != ''"> and fileName = #{filename} </if>
+		  		  <if test="path != null and path != ''"> and path = #{path} </if>
+		  		  <if test="userid != null and userid != ''"> and userId = #{userid} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createTime = #{createtime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.maintenance.domain.WordInfoDO" useGeneratedKeys="true" keyProperty="id">
+		insert into zl_word_info
+		(
+			`treeId`, 
+			`fileName`, 
+			`path`, 
+			`userId`, 
+			`createTime`
+		)
+		values
+		(
+			#{treeid}, 
+			#{filename}, 
+			#{path}, 
+			#{userid}, 
+			#{createtime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.maintenance.domain.WordInfoDO">
+		update zl_word_info 
+		<set>
+			<if test="treeid != null">`treeId` = #{treeid}, </if>
+			<if test="filename != null">`fileName` = #{filename}, </if>
+			<if test="path != null">`path` = #{path}, </if>
+			<if test="userid != null">`userId` = #{userid}, </if>
+			<if test="createtime != null">`createTime` = #{createtime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from zl_word_info where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from zl_word_info where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>
