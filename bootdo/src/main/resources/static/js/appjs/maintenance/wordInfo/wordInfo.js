@@ -1,5 +1,6 @@
 
 var prefix = "/maintenance/wordInfo"
+
 $(function() {
 	load();
 });
@@ -9,7 +10,7 @@ function load() {
 			.bootstrapTable(
 					{
 						method : 'get', // 服务器数据的请求方式 get or post
-						url : prefix + "/list/${docType}", // 服务器数据的加载地址
+						url : prefix + "/list/"+docType, // 服务器数据的加载地址
 					//	showRefresh : true,
 					//	showToggle : true,
 					//	showColumns : true,
@@ -134,7 +135,6 @@ function remove(id) {
 		});
 	})
 }
-
 function resetPwd(id) {
 }
 function batchRemove() {
