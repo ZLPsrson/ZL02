@@ -20,7 +20,7 @@ public class WordInfoDO implements Serializable {
 	//目录Id
 	private Long treeid;
 	//文件名称
-	private String filename;
+	private String fileName;
 	//文件路径
 	private String path;
 	//上传人
@@ -97,14 +97,14 @@ public class WordInfoDO implements Serializable {
 	/**
 	 * 设置：文件名称
 	 */
-	public void setFilename(String filename) {
-		this.filename = filename;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	/**
 	 * 获取：文件名称
 	 */
-	public String getFilename() {
-		return filename;
+	public String getFileName() {
+		return fileName;
 	}
 	/**
 	 * 设置：文件路径
