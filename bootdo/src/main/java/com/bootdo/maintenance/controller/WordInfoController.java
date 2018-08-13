@@ -1,7 +1,10 @@
 package com.bootdo.maintenance.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +17,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bootdo.maintenance.domain.WordInfoDO;
 import com.bootdo.maintenance.service.WordInfoService;
+import com.bootdo.common.config.BootdoConfig;
 import com.bootdo.common.controller.BaseController;
+import com.bootdo.common.domain.FileDO;
+import com.bootdo.common.utils.FileType;
+import com.bootdo.common.utils.FileUtil;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
@@ -41,6 +49,9 @@ public class WordInfoController extends BaseController{
 		model.addAttribute("docType", docType);
 	    return "maintenance/wordInfo/wordInfo";
 	}
+	
+	@Autowired
+	private BootdoConfig bootdoConfig;
 	
 	@ResponseBody
 	@GetMapping("/list/{docType}")
@@ -74,7 +85,18 @@ public class WordInfoController extends BaseController{
 	 */
 	@ResponseBody
 	@PostMapping("/save")
-	public R save( WordInfoDO wordInfo){
+	public R save(@RequestParam("file") MultipartFile file, HttpServletRequest request, WordInfoDO wordInfo){
+		String fileName = file.getOriginalFilename();
+		fileName = FileUtil.renameToUUID(fileName);
+		//FileDO sysFile = new FileDO(FileType.fileType(fileName), "/files/" + fileName, new Date());
+		try {
+			FileUtil.uploadFile(file.getBytes(), bootdoConfig.getUploadPath(), fileName);
+		} catch (Exception e) {
+			return R.error();
+		}
+		wordInfo.setUserid(new Long(1));
+		wordInfo.setFileName(fileName);
+		wordInfo.setPath(bootdoConfig.getUploadPath()+"/"+fileName);
 		if(wordInfoService.save(wordInfo)>0){
 			return R.ok();
 		}
